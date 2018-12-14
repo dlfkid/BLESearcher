@@ -7,3 +7,4 @@
 */
 
 "com.misery.newBLEcentralDemo.language.type" = "0";
+"MainViewController.title" = "附近的蓝牙设备";

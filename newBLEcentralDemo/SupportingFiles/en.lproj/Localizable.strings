@@ -7,3 +7,4 @@
 */
 
 "com.misery.newBLEcentralDemo.language.type" = "1";
+"MainViewController.title" = "Nearby BLE accessories";

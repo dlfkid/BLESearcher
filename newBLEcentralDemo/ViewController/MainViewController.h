@@ -17,20 +17,6 @@
 
 typedef void(^passStatus)(NSString *message);
 
-@interface MainViewController : UIViewController<CBCentralManagerDelegate,CBPeripheralDelegate,UITableViewDelegate,UITableViewDataSource>
-
-{
-    passStatus responStatus;
-}
-
-@property(nonatomic,strong) UILabel *status;
-@property(nonatomic,strong) NSMutableArray *tableList;
-@property(nonatomic,strong) NSMutableArray *servicesList;
-@property(nonatomic,strong) NSMutableArray *charaList;
-@property(nonatomic,strong) UITableView *tableView;
-@property(nonatomic,strong) CBCentralManager *centralManager;
-@property(nonatomic,strong) CBPeripheral *currentPeripheral;
-@property(nonatomic,strong) CBCharacteristic *currentCharacteristic;
-@property(nonatomic,copy) NSData *setCharacteristicValue;
+@interface MainViewController : UIViewController
 
 @end

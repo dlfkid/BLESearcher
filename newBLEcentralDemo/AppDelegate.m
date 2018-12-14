@@ -7,7 +7,12 @@
 //
 
 #import "AppDelegate.h"
+
+
 #import "MainViewController.h"
+
+// helpers
+#import <IQKeyboardManager/IQKeyboardManager.h>
 
 @interface AppDelegate ()
 
@@ -16,17 +21,26 @@
 @implementation AppDelegate
 
 
+#pragma mark - InitialSetup
+
+- (void)setupWindow {
+  self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+  [self.window makeKeyAndVisible];
+  [self.window setBackgroundColor:[UIColor whiteColor]];
+}
+
+- (void)setupRootViewController {
+  MainViewController *main = [[MainViewController alloc]init];
+  UINavigationController *navMain = [[UINavigationController alloc]initWithRootViewController:main];
+  [self.window setRootViewController:navMain];
+}
+
+#pragma mark - LifeCycle
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-    
-    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
-    [self.window makeKeyAndVisible];
-    [self.window setBackgroundColor:[UIColor whiteColor]];
-    MainViewController *main = [[MainViewController alloc]init];
-    UINavigationController *navMain = [[UINavigationController alloc]initWithRootViewController:main];
-    [self.window setRootViewController:navMain];
-    
-    return YES;
+  [IQKeyboardManager sharedManager];
+  [self setupWindow];
+  [self setupRootViewController];
+  return YES;
 }
 
 
