@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		512181C8A959BE4C017D36AE /* libPods-newBLEcentralDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF880D739FA6E61E505DD24 /* libPods-newBLEcentralDemo.a */; };
 		B41BD3AE21C34D71003ADC07 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B41BD3B021C34D71003ADC07 /* Localizable.strings */; };
 		B41BD3B521C35142003ADC07 /* UIDevice+DeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B41BD3B421C35142003ADC07 /* UIDevice+DeviceInfo.m */; };
 		B4A3A2491F2F09F800FEE539 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A3A2481F2F09F800FEE539 /* main.m */; };
@@ -15,10 +14,11 @@
 		B4A3A2541F2F09F800FEE539 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4A3A2531F2F09F800FEE539 /* Assets.xcassets */; };
 		B4A3A2571F2F09F800FEE539 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4A3A2551F2F09F800FEE539 /* LaunchScreen.storyboard */; };
 		B4A3A2601F2F0A1800FEE539 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A3A25F1F2F0A1800FEE539 /* MainViewController.m */; };
+		EB3BB8ACF9166A75CF880EDE /* Pods_newBLEcentralDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01EF18DDEB46B42D53F18B06 /* Pods_newBLEcentralDemo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1AF880D739FA6E61E505DD24 /* libPods-newBLEcentralDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-newBLEcentralDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		01EF18DDEB46B42D53F18B06 /* Pods_newBLEcentralDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_newBLEcentralDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		72EE0E910CAC4D684F88549F /* Pods-newBLEcentralDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-newBLEcentralDemo.debug.xcconfig"; path = "Target Support Files/Pods-newBLEcentralDemo/Pods-newBLEcentralDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		B41BD3A921C34B52003ADC07 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		B41BD3AA21C34C1E003ADC07 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
@@ -44,7 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				512181C8A959BE4C017D36AE /* libPods-newBLEcentralDemo.a in Frameworks */,
+				EB3BB8ACF9166A75CF880EDE /* Pods_newBLEcentralDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,7 +54,7 @@
 		0BD4378DD69884E2E57030EF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1AF880D739FA6E61E505DD24 /* libPods-newBLEcentralDemo.a */,
+				01EF18DDEB46B42D53F18B06 /* Pods_newBLEcentralDemo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -68,22 +68,22 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		B41BD3B221C3511E003ADC07 /* Controller */ = {
+		B41BD3B921C358CD003ADC07 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
 				B4A3A25E1F2F0A1800FEE539 /* MainViewController.h */,
 				B4A3A25F1F2F0A1800FEE539 /* MainViewController.m */,
 			);
-			name = Controller;
+			path = ViewController;
 			sourceTree = "<group>";
 		};
-		B41BD3B621C35148003ADC07 /* Category */ = {
+		B41BD3BB21C358F0003ADC07 /* Category */ = {
 			isa = PBXGroup;
 			children = (
 				B41BD3B321C35142003ADC07 /* UIDevice+DeviceInfo.h */,
 				B41BD3B421C35142003ADC07 /* UIDevice+DeviceInfo.m */,
 			);
-			name = Category;
+			path = Category;
 			sourceTree = "<group>";
 		};
 		B4A3A23B1F2F09F800FEE539 = {
@@ -109,8 +109,8 @@
 			children = (
 				B4A3A24A1F2F09F800FEE539 /* AppDelegate.h */,
 				B4A3A24B1F2F09F800FEE539 /* AppDelegate.m */,
-				B41BD3B621C35148003ADC07 /* Category */,
-				B41BD3B221C3511E003ADC07 /* Controller */,
+				B41BD3BB21C358F0003ADC07 /* Category */,
+				B41BD3B921C358CD003ADC07 /* ViewController */,
 				B4A3A2531F2F09F800FEE539 /* Assets.xcassets */,
 				B4A3A2551F2F09F800FEE539 /* LaunchScreen.storyboard */,
 				B4A3A2581F2F09F800FEE539 /* Info.plist */,
@@ -141,6 +141,7 @@
 				B4A3A2401F2F09F800FEE539 /* Sources */,
 				B4A3A2411F2F09F800FEE539 /* Frameworks */,
 				B4A3A2421F2F09F800FEE539 /* Resources */,
+				0D6C4F727AC27ACEC6FCCF72 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -199,6 +200,36 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0D6C4F727AC27ACEC6FCCF72 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-newBLEcentralDemo/Pods-newBLEcentralDemo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/FLEX/FLEX.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
+				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
+				"${BUILT_PRODUCTS_DIR}/PSTAlertController/PSTAlertController.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FLEX.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PSTAlertController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-newBLEcentralDemo/Pods-newBLEcentralDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		4EFB6E4BC8E68C02B69B1825 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

@@ -34,4 +34,52 @@
   return screenType;
 }
 
++ (CGFloat)bottomIndicatior {
+  DeviceScreenType type = [[self class] currentScreenType];
+  switch (type) {
+    case DeviceScreenTypeiPhone4:
+    case DeviceScreenTypeiPhone5:
+    case DeviceScreenTypeiPhone6:
+    case DeviceScreenTypeiPhone6Plus:
+      return 0;
+      break;
+    
+    case DeviceScreenTypeiPhoneX:
+    case DeviceScreenTypeiPhoneXR:
+    case DeviceScreenTypeiPhoneXsMax:
+      return 34;
+      break;
+      
+    default:
+      return 0;
+      break;
+  }
+}
+
++ (CGFloat)statusBarHeight {
+  DeviceScreenType type = [[self class] currentScreenType];
+  switch (type) {
+    case DeviceScreenTypeiPhone4:
+    case DeviceScreenTypeiPhone5:
+    case DeviceScreenTypeiPhone6:
+    case DeviceScreenTypeiPhone6Plus:
+      return 20;
+      break;
+      
+    case DeviceScreenTypeiPhoneX:
+    case DeviceScreenTypeiPhoneXR:
+    case DeviceScreenTypeiPhoneXsMax:
+      return 44;
+      break;
+      
+    default:
+      return 20;
+      break;
+  }
+}
+
++ (CGFloat)navigationBarAndStatusBarHeight {
+  return [[self class] statusBarHeight] + 44;
+}
+
 @end
