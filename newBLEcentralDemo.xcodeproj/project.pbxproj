@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		512181C8A959BE4C017D36AE /* libPods-newBLEcentralDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF880D739FA6E61E505DD24 /* libPods-newBLEcentralDemo.a */; };
 		B41BD3AE21C34D71003ADC07 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B41BD3B021C34D71003ADC07 /* Localizable.strings */; };
+		B41BD3B521C35142003ADC07 /* UIDevice+DeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B41BD3B421C35142003ADC07 /* UIDevice+DeviceInfo.m */; };
 		B4A3A2491F2F09F800FEE539 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A3A2481F2F09F800FEE539 /* main.m */; };
 		B4A3A24C1F2F09F800FEE539 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A3A24B1F2F09F800FEE539 /* AppDelegate.m */; };
 		B4A3A2541F2F09F800FEE539 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4A3A2531F2F09F800FEE539 /* Assets.xcassets */; };
@@ -24,6 +25,8 @@
 		B41BD3AB21C34CB8003ADC07 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		B41BD3AF21C34D71003ADC07 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		B41BD3B121C34D75003ADC07 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B41BD3B321C35142003ADC07 /* UIDevice+DeviceInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIDevice+DeviceInfo.h"; sourceTree = "<group>"; };
+		B41BD3B421C35142003ADC07 /* UIDevice+DeviceInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+DeviceInfo.m"; sourceTree = "<group>"; };
 		B4A3A2441F2F09F800FEE539 /* newBLEcentralDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = newBLEcentralDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4A3A2481F2F09F800FEE539 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B4A3A24A1F2F09F800FEE539 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -65,6 +68,24 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		B41BD3B221C3511E003ADC07 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B4A3A25E1F2F0A1800FEE539 /* MainViewController.h */,
+				B4A3A25F1F2F0A1800FEE539 /* MainViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		B41BD3B621C35148003ADC07 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				B41BD3B321C35142003ADC07 /* UIDevice+DeviceInfo.h */,
+				B41BD3B421C35142003ADC07 /* UIDevice+DeviceInfo.m */,
+			);
+			name = Category;
+			sourceTree = "<group>";
+		};
 		B4A3A23B1F2F09F800FEE539 = {
 			isa = PBXGroup;
 			children = (
@@ -88,8 +109,8 @@
 			children = (
 				B4A3A24A1F2F09F800FEE539 /* AppDelegate.h */,
 				B4A3A24B1F2F09F800FEE539 /* AppDelegate.m */,
-				B4A3A25E1F2F0A1800FEE539 /* MainViewController.h */,
-				B4A3A25F1F2F0A1800FEE539 /* MainViewController.m */,
+				B41BD3B621C35148003ADC07 /* Category */,
+				B41BD3B221C3511E003ADC07 /* Controller */,
 				B4A3A2531F2F09F800FEE539 /* Assets.xcassets */,
 				B4A3A2551F2F09F800FEE539 /* LaunchScreen.storyboard */,
 				B4A3A2581F2F09F800FEE539 /* Info.plist */,
@@ -208,6 +229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4A3A24C1F2F09F800FEE539 /* AppDelegate.m in Sources */,
+				B41BD3B521C35142003ADC07 /* UIDevice+DeviceInfo.m in Sources */,
 				B4A3A2601F2F0A1800FEE539 /* MainViewController.m in Sources */,
 				B4A3A2491F2F09F800FEE539 /* main.m in Sources */,
 			);
@@ -334,11 +356,18 @@
 			baseConfigurationReference = 72EE0E910CAC4D684F88549F /* Pods-newBLEcentralDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VSH7W5Y66V;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/newBLEcentralDemo/PrefixHeader.pch";
 				INFOPLIST_FILE = newBLEcentralDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.misery.newBLEcentralDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SHARED_PRECOMPS_DIR = "";
 			};
 			name = Debug;
 		};
@@ -347,11 +376,18 @@
 			baseConfigurationReference = F117AA5C9B27D4E92A4482F0 /* Pods-newBLEcentralDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VSH7W5Y66V;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/newBLEcentralDemo/PrefixHeader.pch";
 				INFOPLIST_FILE = newBLEcentralDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.misery.newBLEcentralDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SHARED_PRECOMPS_DIR = "";
 			};
 			name = Release;
 		};

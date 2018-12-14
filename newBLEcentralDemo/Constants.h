@@ -9,9 +9,19 @@
 #ifndef Constants_h
 #define Constants_h
 
-typedef NS_ENUM (NSUInteger, APPLanguageType) {
+typedef NS_ENUM(NSInteger, APPLanguageType) {
   APPLanguageTypeChinese,
   APPLanguageTypeEnglish,
+};
+
+typedef NS_ENUM(NSInteger, DeviceScreenType) {
+  DeviceScreenTypeiPhone4,
+  DeviceScreenTypeiPhone5,
+  DeviceScreenTypeiPhone6,
+  DeviceScreenTypeiPhone6Plus,
+  DeviceScreenTypeiPhoneX,
+  DeviceScreenTypeiPhoneXR,
+  DeviceScreenTypeiPhoneXsMax,
 };
 
 static inline NSString * localizedString(NSString *key) {
@@ -27,9 +37,9 @@ static inline NSString * localizedString(NSString *key) {
   return string;
 }
 
-static inline APPLanguageType currentLanuageType {
-  NSString *code = localizedString("com.misery.newBLEcentralDemo.language.type");
-  return (APPLanguageType)code.integerValue
+static inline APPLanguageType currentLanuageType() {
+  NSString *code = localizedString(@"com.misery.newBLEcentralDemo.language.type");
+  return (APPLanguageType)code.integerValue;
 }
 
 #endif /* Constants_h */
