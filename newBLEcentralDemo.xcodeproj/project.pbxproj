@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		512181C8A959BE4C017D36AE /* libPods-newBLEcentralDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF880D739FA6E61E505DD24 /* libPods-newBLEcentralDemo.a */; };
+		B41BD3AE21C34D71003ADC07 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B41BD3B021C34D71003ADC07 /* Localizable.strings */; };
 		B4A3A2491F2F09F800FEE539 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A3A2481F2F09F800FEE539 /* main.m */; };
 		B4A3A24C1F2F09F800FEE539 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A3A24B1F2F09F800FEE539 /* AppDelegate.m */; };
 		B4A3A2541F2F09F800FEE539 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4A3A2531F2F09F800FEE539 /* Assets.xcassets */; };
@@ -15,6 +17,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1AF880D739FA6E61E505DD24 /* libPods-newBLEcentralDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-newBLEcentralDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		72EE0E910CAC4D684F88549F /* Pods-newBLEcentralDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-newBLEcentralDemo.debug.xcconfig"; path = "Target Support Files/Pods-newBLEcentralDemo/Pods-newBLEcentralDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		B41BD3A921C34B52003ADC07 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		B41BD3AA21C34C1E003ADC07 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		B41BD3AB21C34CB8003ADC07 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		B41BD3AF21C34D71003ADC07 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		B41BD3B121C34D75003ADC07 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B4A3A2441F2F09F800FEE539 /* newBLEcentralDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = newBLEcentralDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4A3A2481F2F09F800FEE539 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B4A3A24A1F2F09F800FEE539 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -24,6 +33,7 @@
 		B4A3A2581F2F09F800FEE539 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4A3A25E1F2F0A1800FEE539 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		B4A3A25F1F2F0A1800FEE539 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		F117AA5C9B27D4E92A4482F0 /* Pods-newBLEcentralDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-newBLEcentralDemo.release.xcconfig"; path = "Target Support Files/Pods-newBLEcentralDemo/Pods-newBLEcentralDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +41,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				512181C8A959BE4C017D36AE /* libPods-newBLEcentralDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0BD4378DD69884E2E57030EF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1AF880D739FA6E61E505DD24 /* libPods-newBLEcentralDemo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9CE6CE14EC84F13BA4A6E06B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				72EE0E910CAC4D684F88549F /* Pods-newBLEcentralDemo.debug.xcconfig */,
+				F117AA5C9B27D4E92A4482F0 /* Pods-newBLEcentralDemo.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		B4A3A23B1F2F09F800FEE539 = {
 			isa = PBXGroup;
 			children = (
 				B4A3A2461F2F09F800FEE539 /* newBLEcentralDemo */,
 				B4A3A2451F2F09F800FEE539 /* Products */,
+				9CE6CE14EC84F13BA4A6E06B /* Pods */,
+				0BD4378DD69884E2E57030EF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -72,6 +102,9 @@
 			isa = PBXGroup;
 			children = (
 				B4A3A2481F2F09F800FEE539 /* main.m */,
+				B41BD3A921C34B52003ADC07 /* PrefixHeader.pch */,
+				B41BD3AA21C34C1E003ADC07 /* Constants.h */,
+				B41BD3B021C34D71003ADC07 /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -83,6 +116,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B4A3A25B1F2F09F800FEE539 /* Build configuration list for PBXNativeTarget "newBLEcentralDemo" */;
 			buildPhases = (
+				4EFB6E4BC8E68C02B69B1825 /* [CP] Check Pods Manifest.lock */,
 				B4A3A2401F2F09F800FEE539 /* Sources */,
 				B4A3A2411F2F09F800FEE539 /* Frameworks */,
 				B4A3A2421F2F09F800FEE539 /* Resources */,
@@ -136,11 +170,37 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4A3A2571F2F09F800FEE539 /* LaunchScreen.storyboard in Resources */,
+				B41BD3AE21C34D71003ADC07 /* Localizable.strings in Resources */,
 				B4A3A2541F2F09F800FEE539 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4EFB6E4BC8E68C02B69B1825 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-newBLEcentralDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B4A3A2401F2F09F800FEE539 /* Sources */ = {
@@ -156,10 +216,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		B41BD3B021C34D71003ADC07 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B41BD3AF21C34D71003ADC07 /* zh-Hans */,
+				B41BD3B121C34D75003ADC07 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		B4A3A2551F2F09F800FEE539 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				B4A3A2561F2F09F800FEE539 /* Base */,
+				B41BD3AB21C34CB8003ADC07 /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -171,6 +241,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -219,6 +290,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -259,24 +331,26 @@
 		};
 		B4A3A25C1F2F09F800FEE539 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 72EE0E910CAC4D684F88549F /* Pods-newBLEcentralDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = VSH7W5Y66V;
 				INFOPLIST_FILE = newBLEcentralDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Misery.newBLEcentralDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.misery.newBLEcentralDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
 		B4A3A25D1F2F09F800FEE539 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F117AA5C9B27D4E92A4482F0 /* Pods-newBLEcentralDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = VSH7W5Y66V;
 				INFOPLIST_FILE = newBLEcentralDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Misery.newBLEcentralDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.misery.newBLEcentralDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -300,6 +374,7 @@
 				B4A3A25D1F2F09F800FEE539 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
