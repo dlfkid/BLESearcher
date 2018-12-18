@@ -13,6 +13,7 @@
 
 // helpers
 #import <IQKeyboardManager/IQKeyboardManager.h>
+#import "BLECentralManager.h"
 
 @interface AppDelegate ()
 
@@ -38,6 +39,7 @@
 #pragma mark - LifeCycle
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   [IQKeyboardManager sharedManager];
+  [[BLECentralManager sharedManager] currentState];
   [self setupWindow];
   [self setupRootViewController];
   return YES;

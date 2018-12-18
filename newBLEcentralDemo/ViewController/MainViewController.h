@@ -12,7 +12,6 @@
 #define CHARACTERISTIC_ID @"characteristic"
 #define DEVICE_ID @"device_id"
 
-#import <CoreBluetooth/CoreBluetooth.h>
 #import <UIKit/UIKit.h>
 
 typedef void(^passStatus)(NSString *message);

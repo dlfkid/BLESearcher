@@ -1,0 +1,36 @@
+PODS:
+  - FLEX (2.4.0)
+  - IQKeyboardManager (6.2.0)
+  - Masonry (1.1.0)
+  - PSTAlertController (1.2.0)
+  - SVProgressHUD (2.0.3)
+  - SVPullToRefresh (0.4.1)
+
+DEPENDENCIES:
+  - FLEX (~> 2.0)
+  - IQKeyboardManager
+  - Masonry (~> 1.1.0)
+  - PSTAlertController
+  - SVProgressHUD (= 2.0.3)
+  - SVPullToRefresh
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - FLEX
+    - IQKeyboardManager
+    - Masonry
+    - PSTAlertController
+    - SVProgressHUD
+    - SVPullToRefresh
+
+SPEC CHECKSUMS:
+  FLEX: bd1a39e55b56bb413b6f1b34b3c10a0dc44ef079
+  IQKeyboardManager: 6194101620b73af5e67900b8f89707a99de0b804
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  PSTAlertController: 9b802dfbda54fee2683bfd6dda7023a6de895d5b
+  SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
+  SVPullToRefresh: ba2e718695a43253d8bea6852d2960097dc15d8c
+
+PODFILE CHECKSUM: 432c1b86e66cfccd5c24e6fd2259ea7cf397dd57
+
+COCOAPODS: 1.6.0.beta.2

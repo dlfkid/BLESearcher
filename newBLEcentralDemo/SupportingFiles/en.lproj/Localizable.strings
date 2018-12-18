@@ -8,3 +8,9 @@
 
 "com.misery.newBLEcentralDemo.language.type" = "1";
 "MainViewController.title" = "Nearby BLE accessories";
+"BLEManager.state.on" = "BLE manager state: On";
+"BLEManager.state.off" = "BLE manager state: Off";
+"BLEManager.state.unkown" = "BLE manager state: Unkown";
+"BLEManager.state.unauthorized" = "BLE manager state: Unauthorized";
+"BLEManager.state.unsupported" = "BLE manager state: Unsupported";
+"BLEManager.state.resetting" = "BLE manager state: Resetting";

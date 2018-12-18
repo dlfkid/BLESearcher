@@ -9,11 +9,13 @@
 /* Begin PBXBuildFile section */
 		B41BD3AE21C34D71003ADC07 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B41BD3B021C34D71003ADC07 /* Localizable.strings */; };
 		B41BD3B521C35142003ADC07 /* UIDevice+DeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B41BD3B421C35142003ADC07 /* UIDevice+DeviceInfo.m */; };
+		B41BD3BF21C77365003ADC07 /* PeripherialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B41BD3BE21C77365003ADC07 /* PeripherialViewController.m */; };
 		B4A3A2491F2F09F800FEE539 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A3A2481F2F09F800FEE539 /* main.m */; };
 		B4A3A24C1F2F09F800FEE539 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A3A24B1F2F09F800FEE539 /* AppDelegate.m */; };
 		B4A3A2541F2F09F800FEE539 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4A3A2531F2F09F800FEE539 /* Assets.xcassets */; };
 		B4A3A2571F2F09F800FEE539 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4A3A2551F2F09F800FEE539 /* LaunchScreen.storyboard */; };
 		B4A3A2601F2F0A1800FEE539 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A3A25F1F2F0A1800FEE539 /* MainViewController.m */; };
+		B4B121F821C8B13900EE0A46 /* BLECentralManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B121F721C8B13900EE0A46 /* BLECentralManager.m */; };
 		EB3BB8ACF9166A75CF880EDE /* Pods_newBLEcentralDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01EF18DDEB46B42D53F18B06 /* Pods_newBLEcentralDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +29,8 @@
 		B41BD3B121C34D75003ADC07 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B41BD3B321C35142003ADC07 /* UIDevice+DeviceInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIDevice+DeviceInfo.h"; sourceTree = "<group>"; };
 		B41BD3B421C35142003ADC07 /* UIDevice+DeviceInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+DeviceInfo.m"; sourceTree = "<group>"; };
+		B41BD3BD21C77365003ADC07 /* PeripherialViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PeripherialViewController.h; sourceTree = "<group>"; };
+		B41BD3BE21C77365003ADC07 /* PeripherialViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PeripherialViewController.m; sourceTree = "<group>"; };
 		B4A3A2441F2F09F800FEE539 /* newBLEcentralDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = newBLEcentralDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4A3A2481F2F09F800FEE539 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B4A3A24A1F2F09F800FEE539 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -36,6 +40,8 @@
 		B4A3A2581F2F09F800FEE539 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4A3A25E1F2F0A1800FEE539 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		B4A3A25F1F2F0A1800FEE539 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		B4B121F621C8B13900EE0A46 /* BLECentralManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLECentralManager.h; sourceTree = "<group>"; };
+		B4B121F721C8B13900EE0A46 /* BLECentralManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BLECentralManager.m; sourceTree = "<group>"; };
 		F117AA5C9B27D4E92A4482F0 /* Pods-newBLEcentralDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-newBLEcentralDemo.release.xcconfig"; path = "Target Support Files/Pods-newBLEcentralDemo/Pods-newBLEcentralDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -73,6 +79,8 @@
 			children = (
 				B4A3A25E1F2F0A1800FEE539 /* MainViewController.h */,
 				B4A3A25F1F2F0A1800FEE539 /* MainViewController.m */,
+				B41BD3BD21C77365003ADC07 /* PeripherialViewController.h */,
+				B41BD3BE21C77365003ADC07 /* PeripherialViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -96,6 +104,15 @@
 				B41BD3B021C34D71003ADC07 /* Localizable.strings */,
 			);
 			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		B41BD3C321C8ADB6003ADC07 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				B4B121F621C8B13900EE0A46 /* BLECentralManager.h */,
+				B4B121F721C8B13900EE0A46 /* BLECentralManager.m */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		B4A3A23B1F2F09F800FEE539 = {
@@ -122,6 +139,7 @@
 				B4A3A2581F2F09F800FEE539 /* Info.plist */,
 				B4A3A24A1F2F09F800FEE539 /* AppDelegate.h */,
 				B4A3A24B1F2F09F800FEE539 /* AppDelegate.m */,
+				B41BD3C321C8ADB6003ADC07 /* Helper */,
 				B41BD3BB21C358F0003ADC07 /* Category */,
 				B41BD3B921C358CD003ADC07 /* ViewController */,
 				B4A3A2531F2F09F800FEE539 /* Assets.xcassets */,
@@ -263,8 +281,10 @@
 			files = (
 				B4A3A24C1F2F09F800FEE539 /* AppDelegate.m in Sources */,
 				B41BD3B521C35142003ADC07 /* UIDevice+DeviceInfo.m in Sources */,
+				B41BD3BF21C77365003ADC07 /* PeripherialViewController.m in Sources */,
 				B4A3A2601F2F0A1800FEE539 /* MainViewController.m in Sources */,
 				B4A3A2491F2F09F800FEE539 /* main.m in Sources */,
+				B4B121F821C8B13900EE0A46 /* BLECentralManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

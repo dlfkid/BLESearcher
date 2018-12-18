@@ -42,4 +42,5 @@ static inline APPLanguageType currentLanuageType() {
   return (APPLanguageType)code.integerValue;
 }
 
+
 #endif /* Constants_h */
