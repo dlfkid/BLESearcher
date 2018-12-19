@@ -17,7 +17,7 @@ typedef void (^CompletionHandler)(BOOL success, NSError * _Nullable error);
 @protocol BLECentralManagerDelegate <NSObject>
 
 @optional
-- (void)managerDidUpadatePeripherals;
+- (void)managerDidUpadatePeripheral:(CBPeripheral *)peripheral;
 - (void)managerDidLostConnectionToPeripheral:(CBPeripheral *)perpherial error:(NSError * _Nullable)error;
 
 @end
@@ -34,7 +34,9 @@ typedef void (^CompletionHandler)(BOOL success, NSError * _Nullable error);
 
 - (void)scanPeripherals;
 
-- (void)connectWithPeripheral:(CBPeripheral *)peripheral completionHandler:(CompletionHandler)completion;
+- (void)connectWithPeripheral:(CBPeripheral *)peripheral completionHandler:(_Nullable CompletionHandler)completion;
+
+- (void)disconnectWithPeripheral:(CBPeripheral *)peripheral;
 
 @end
 

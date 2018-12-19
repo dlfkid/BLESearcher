@@ -8,6 +8,8 @@
 
 "com.misery.newBLEcentralDemo.language.type" = "0";
 "MainViewController.title" = "附近的蓝牙设备";
+"MainViewController.tableView.cell.title.default" = "未命名设备";
+
 "BLEManager.state.on" = "管理器状态: 开启";
 "BLEManager.state.off" = "管理器状态: 关闭";
 "BLEManager.state.unkown" = "管理器状态: 未知";

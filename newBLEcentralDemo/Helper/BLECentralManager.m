@@ -97,22 +97,28 @@ static NSString * const bleManageQueueName = @"com.seal.newBLEcentralDemo.bleMan
   [self.centralManager connectPeripheral:peripheral options:nil];
 }
 
+- (void)disconnectWithPeripheral:(CBPeripheral *)peripheral {
+  [self.centralManager cancelPeripheralConnection:peripheral];
+}
+
 #pragma mark - CBCentralManagerDelegate
 - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary<NSString *,id> *)advertisementData RSSI:(NSNumber *)RSSI {
   if (![self.peripherals containsObject:peripheral]) {
     [self.peripherals addObject:peripheral];
     dispatch_async(dispatch_get_main_queue(), ^{
-      if ([self.delegate respondsToSelector:@selector(managerDidUpadatePeripherals)]) {
-        [self.delegate managerDidUpadatePeripherals];
+      if ([self.delegate respondsToSelector:@selector(managerDidUpadatePeripheral:)]) {
+        [self.delegate managerDidUpadatePeripheral:peripheral];
       }
     });
   }
 }
 
 - (void)centralManager:(CBCentralManager *)central didDisconnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error {
-  if ([self.delegate respondsToSelector:@selector(managerDidLostConnectionToPeripheral:error:)]) {
-    [self.delegate managerDidLostConnectionToPeripheral:peripheral error:error];
-  }
+  dispatch_async(dispatch_get_main_queue(), ^{
+    if ([self.delegate respondsToSelector:@selector(managerDidLostConnectionToPeripheral:error:)]) {
+      [self.delegate managerDidLostConnectionToPeripheral:peripheral error:error];
+    }
+  });
 }
 
 - (void)centralManagerDidUpdateState:(nonnull CBCentralManager *)central {

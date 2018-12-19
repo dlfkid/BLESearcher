@@ -8,6 +8,8 @@
 
 "com.misery.newBLEcentralDemo.language.type" = "1";
 "MainViewController.title" = "Nearby BLE accessories";
+"MainViewController.tableView.cell.title.default" = "Unnammed Device";
+
 "BLEManager.state.on" = "BLE manager state: On";
 "BLEManager.state.off" = "BLE manager state: Off";
 "BLEManager.state.unkown" = "BLE manager state: Unkown";

@@ -16,6 +16,7 @@
 		B4A3A2571F2F09F800FEE539 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4A3A2551F2F09F800FEE539 /* LaunchScreen.storyboard */; };
 		B4A3A2601F2F0A1800FEE539 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A3A25F1F2F0A1800FEE539 /* MainViewController.m */; };
 		B4B121F821C8B13900EE0A46 /* BLECentralManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B121F721C8B13900EE0A46 /* BLECentralManager.m */; };
+		B4B348BE21C9F183003A5E0F /* PeripheralTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B348BD21C9F183003A5E0F /* PeripheralTableViewCell.m */; };
 		EB3BB8ACF9166A75CF880EDE /* Pods_newBLEcentralDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01EF18DDEB46B42D53F18B06 /* Pods_newBLEcentralDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,8 @@
 		B4A3A25F1F2F0A1800FEE539 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		B4B121F621C8B13900EE0A46 /* BLECentralManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLECentralManager.h; sourceTree = "<group>"; };
 		B4B121F721C8B13900EE0A46 /* BLECentralManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BLECentralManager.m; sourceTree = "<group>"; };
+		B4B348BC21C9F183003A5E0F /* PeripheralTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PeripheralTableViewCell.h; sourceTree = "<group>"; };
+		B4B348BD21C9F183003A5E0F /* PeripheralTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PeripheralTableViewCell.m; sourceTree = "<group>"; };
 		F117AA5C9B27D4E92A4482F0 /* Pods-newBLEcentralDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-newBLEcentralDemo.release.xcconfig"; path = "Target Support Files/Pods-newBLEcentralDemo/Pods-newBLEcentralDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -139,6 +142,7 @@
 				B4A3A2581F2F09F800FEE539 /* Info.plist */,
 				B4A3A24A1F2F09F800FEE539 /* AppDelegate.h */,
 				B4A3A24B1F2F09F800FEE539 /* AppDelegate.m */,
+				B4B348BB21C9F167003A5E0F /* View */,
 				B41BD3C321C8ADB6003ADC07 /* Helper */,
 				B41BD3BB21C358F0003ADC07 /* Category */,
 				B41BD3B921C358CD003ADC07 /* ViewController */,
@@ -146,6 +150,15 @@
 				B41BD3BC21C384C6003ADC07 /* SupportingFiles */,
 			);
 			path = newBLEcentralDemo;
+			sourceTree = "<group>";
+		};
+		B4B348BB21C9F167003A5E0F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B4B348BC21C9F183003A5E0F /* PeripheralTableViewCell.h */,
+				B4B348BD21C9F183003A5E0F /* PeripheralTableViewCell.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,6 +298,7 @@
 				B4A3A2601F2F0A1800FEE539 /* MainViewController.m in Sources */,
 				B4A3A2491F2F09F800FEE539 /* main.m in Sources */,
 				B4B121F821C8B13900EE0A46 /* BLECentralManager.m in Sources */,
+				B4B348BE21C9F183003A5E0F /* PeripheralTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,6 +11,9 @@
 // ViewController
 #import "PeripherialViewController.h"
 
+// View
+#import "PeripheralTableViewCell.h"
+
 // helper
 #import <CoreBluetooth/CoreBluetooth.h>
 #import <SVPullToRefresh/SVPullToRefresh.h>
@@ -19,7 +22,7 @@
 #import "BLECentralManager.h"
 #import "UIDevice+DeviceInfo.h"
 
-@interface MainViewController ()<BLECentralManagerDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface MainViewController ()<BLECentralManagerDelegate, CBPeripheralDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UILabel *status;
 @property (nonatomic, strong) UITableView *tableView;
@@ -38,7 +41,8 @@ static NSString * const peripheralListIdentifier = @"peripheralCell";
     _tableView.delegate = self;
     _tableView.dataSource = self;
     _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLineEtched;
-    [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:peripheralListIdentifier];
+    _tableView.rowHeight = [PeripheralTableViewCell rowHeight];
+    [_tableView registerClass:[PeripheralTableViewCell class] forCellReuseIdentifier:peripheralListIdentifier];
     __weak typeof(self) weakSelf = self;
     [_tableView addPullToRefreshWithActionHandler:^{
     __strong typeof(self) strongSelf = weakSelf;
@@ -101,6 +105,7 @@ static NSString * const peripheralListIdentifier = @"peripheralCell";
 
 - (void)viewWillAppear:(BOOL)animated {
   self.navigationItem.title = localizedString(@"MainViewController.title");
+  [self.tableView triggerPullToRefresh];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -115,8 +120,18 @@ static NSString * const peripheralListIdentifier = @"peripheralCell";
 
 #pragma mark - BLECentralManagerDelegate
 
-- (void)managerDidUpadatePeripherals {
+- (void)managerDidUpadatePeripheral:(CBPeripheral *)peripheral {
+  peripheral.delegate = self;
   [self.tableView reloadData];
+}
+
+#pragma mark - CBPeripheralDelegate
+
+- (void)peripheralDidUpdateName:(CBPeripheral *)peripheral {
+  NSUInteger index = [self.manager.peripherals indexOfObject:peripheral];
+  dispatch_async(dispatch_get_main_queue(), ^{
+    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:0]] withRowAnimation:UITableViewRowAnimationRight];
+  });
 }
 
 #pragma mark - tableViewDelegate
@@ -146,9 +161,9 @@ static NSString * const peripheralListIdentifier = @"peripheralCell";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-  UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:peripheralListIdentifier forIndexPath:indexPath];
+  PeripheralTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:peripheralListIdentifier forIndexPath:indexPath];
   CBPeripheral *peripheral = self.peripheralList[indexPath.row];
-  cell.textLabel.text = peripheral.identifier.UUIDString;
+  cell.peripheral = peripheral;
   return cell;
 }
 

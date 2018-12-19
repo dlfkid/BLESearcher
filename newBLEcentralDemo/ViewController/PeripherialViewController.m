@@ -11,16 +11,18 @@
 // helpers
 #import <CoreBluetooth/CoreBluetooth.h>
 #import <Masonry/Masonry.h>
+#import "BLECentralManager.h"
 #import "UIDevice+DeviceInfo.h"
 
-@interface PeripherialViewController()<UITableViewDelegate, UITableViewDataSource>
+@interface PeripherialViewController()<UITableViewDelegate, UITableViewDataSource, CBPeripheralDelegate>
 
 @property (nonatomic, strong) CBPeripheral *perpherial;
 @property (nonatomic, strong) UITableView *tableView;
 
 @end
 
-static NSString * const serviceCellReuseIdentifier = @"PeripheralViewController.tableView.reuseIdentifier";
+static NSString * const characteristicCellReuseIdentifier = @"PeripheralViewController.tableView.cell.reuseIdentifier";
+static NSString * const serviceHeaderReuseIdentifier = @"PeripheralViewController.tableView.header.reuseIdentifier";
 
 @implementation PeripherialViewController
 
@@ -30,15 +32,18 @@ static NSString * const serviceCellReuseIdentifier = @"PeripheralViewController.
   self = [super initWithNibName:nil bundle:nil];
   if (self) {
     _perpherial = perpherial;
+    _perpherial.delegate = self;
   }
   return self;
 }
 
 - (UITableView *)tableView {
   if (!_tableView) {
-    _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     _tableView.delegate = self;
-    [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:serviceCellReuseIdentifier];
+    _tableView.dataSource = self;
+    [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:characteristicCellReuseIdentifier];
+    [_tableView registerClass:[UITableViewHeaderFooterView class] forHeaderFooterViewReuseIdentifier:serviceHeaderReuseIdentifier];
   }
   return _tableView;
 }
@@ -50,6 +55,10 @@ static NSString * const serviceCellReuseIdentifier = @"PeripheralViewController.
 }
 
 #pragma mark - LifeCycle
+
+- (void)dealloc {
+  [[BLECentralManager sharedManager] disconnectWithPeripheral:self.perpherial];
+}
 
 - (void)viewDidLoad {
   [super viewDidLoad];
@@ -66,21 +75,59 @@ static NSString * const serviceCellReuseIdentifier = @"PeripheralViewController.
   }];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+  [super viewWillAppear:animated];
+  [self.perpherial discoverServices:nil];
+}
+
 #pragma mark - TableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-  return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
   return self.perpherial.services.count;
 }
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+  CBService *service = self.perpherial.services[section];
+  return service.characteristics.count;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-  UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:serviceCellReuseIdentifier];
-  CBService *service = self.perpherial.services[indexPath.row];
-  cell.textLabel.text = service.UUID.UUIDString;
+  UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:characteristicCellReuseIdentifier];
+  CBService *service = self.perpherial.services[indexPath.section];
+  CBCharacteristic *characteristic = service.characteristics[indexPath.row];
+  cell.textLabel.text = characteristic.UUID.UUIDString;
   return cell;
 }
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+  UITableViewHeaderFooterView *header = [self.tableView dequeueReusableHeaderFooterViewWithIdentifier:serviceHeaderReuseIdentifier];
+  CBService *service = self.perpherial.services[section];
+  if (service) {
+    [self.perpherial discoverCharacteristics:nil forService:service];
+  }
+  header.textLabel.text = service.UUID.UUIDString;
+  return header;
+}
+
+#pragma mark - CBPeripheralDelegate
+
+- (void)peripheralDidUpdateName:(CBPeripheral *)peripheral {
+  dispatch_async(dispatch_get_main_queue(), ^{
+    self.navigationItem.title = peripheral.name;
+  });
+}
+
+- (void)peripheral:(CBPeripheral *)peripheral didDiscoverServices:(NSError *)error {
+  dispatch_async(dispatch_get_main_queue(), ^{
+    [self.tableView reloadData];
+  });
+}
+
+- (void)peripheral:(CBPeripheral *)peripheral didDiscoverCharacteristicsForService:(CBService *)service error:(NSError *)error {
+  dispatch_async(dispatch_get_main_queue(), ^{
+    [self.tableView reloadData];
+  });
+}
+
 
 @end
