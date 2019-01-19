@@ -13,7 +13,7 @@
 #import <CoreBluetooth/CoreBluetooth.h>
 #import "BLECentralManager.h"
 
-@interface CharacterSettingViewController ()
+@interface CharacterSettingViewController ()<UITextFieldDelegate>
 
 @property (nonatomic, strong) CBCharacteristic *characteristic;
 
@@ -37,6 +37,11 @@ static CGFloat const viewWidth = 340;
         _characteristic = characteristic;
     }
     return self;
+}
+
+- (void)setSaveable:(BOOL)saveable {
+    _saveable = saveable;
+    self.actionButton.selected = self.isSaveable;
 }
 
 #pragma mark - LifeCycle
@@ -65,6 +70,10 @@ static CGFloat const viewWidth = 340;
     _writeValueTextView = [[UITextField alloc] initWithFrame:CGRectZero];
     _writeValueTextView.placeholder = localizedString(@"ChaaracteristicSettingViewController.writeValueTextView.placeHolder");
     _writeValueTextView.clearButtonMode = UITextFieldViewModeWhileEditing;
+    _writeValueTextView.layer.cornerRadius = 10;
+    _writeValueTextView.layer.borderWidth = 0.5;
+    _writeValueTextView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    _writeValueTextView.delegate = self;
     // 只有属性为可写时才能对属性进行写入
     switch (self.characteristic.properties) {
         case CBCharacteristicPropertyWrite:
@@ -126,6 +135,12 @@ static CGFloat const viewWidth = 340;
         // 执行写入操作
     }
     [self hideWithCompletion:nil];
+}
+
+#pragma mark - UITextFieldDelegate
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    self.saveable = YES;
 }
 
 @end

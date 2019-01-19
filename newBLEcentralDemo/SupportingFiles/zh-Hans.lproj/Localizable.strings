@@ -17,7 +17,7 @@
 "BLEManager.state.unsupported" = "管理器状态: 不支持";
 "BLEManager.state.resetting" = "管理器状态: 重置中";
 
-"ChaaracteristicSettingViewController.writeValueTextView.placeHolder" = "写入特征值";
+"ChaaracteristicSettingViewController.writeValueTextView.placeHolder" = "  写入特征值";
 "ChaaracteristicSettingViewController.actionButton.title.save" = "保存";
 "ChaaracteristicSettingViewController.actionButton.title.cancel" = "取消";
 
