@@ -16,3 +16,7 @@
 "BLEManager.state.unauthorized" = "BLE manager state: Unauthorized";
 "BLEManager.state.unsupported" = "BLE manager state: Unsupported";
 "BLEManager.state.resetting" = "BLE manager state: Resetting";
+
+"ChaaracteristicSettingViewController.writeValueTextView.placeHolder" = "Input new characteristic value";
+"ChaaracteristicSettingViewController.actionButton.title.save" = "Save";
+"ChaaracteristicSettingViewController.actionButton.title.cancel" = "Cancel";

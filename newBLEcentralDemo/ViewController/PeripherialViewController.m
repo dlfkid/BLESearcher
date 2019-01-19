@@ -8,10 +8,14 @@
 
 #import "PeripherialViewController.h"
 
+// Controllers
+#import "CharacterSettingViewController.h"
+
 // helpers
 #import <CoreBluetooth/CoreBluetooth.h>
 #import <Masonry/Masonry.h>
 #import "BLECentralManager.h"
+#import "ControllerAnimationManager.h"
 #import "UIDevice+DeviceInfo.h"
 
 @interface PeripherialViewController()<UITableViewDelegate, UITableViewDataSource, CBPeripheralDelegate>
@@ -107,6 +111,15 @@ static NSString * const serviceHeaderReuseIdentifier = @"PeripheralViewControlle
   }
   header.textLabel.text = service.UUID.UUIDString;
   return header;
+}
+
+#pragma mark - TableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    CBService *service = self.perpherial.services[indexPath.section];
+    CBCharacteristic *characterisitc = service.characteristics[indexPath.row];
+    CharacterSettingViewController *controller = [[CharacterSettingViewController alloc] initWithCharacteristic:characterisitc];
+    [ControllerAnimationManager popUp:controller InViewConrtroller:self];
 }
 
 #pragma mark - CBPeripheralDelegate

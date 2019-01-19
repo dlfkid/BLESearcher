@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		35142E5121F2DB5100262AE3 /* SubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35142E5021F2DB5100262AE3 /* SubViewController.m */; };
+		35142E5421F2DD4C00262AE3 /* CharacterSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35142E5321F2DD4C00262AE3 /* CharacterSettingViewController.m */; };
+		35142E5721F2EBFF00262AE3 /* ControllerAnimationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 35142E5621F2EBFF00262AE3 /* ControllerAnimationManager.m */; };
 		B41BD3AE21C34D71003ADC07 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B41BD3B021C34D71003ADC07 /* Localizable.strings */; };
 		B41BD3B521C35142003ADC07 /* UIDevice+DeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B41BD3B421C35142003ADC07 /* UIDevice+DeviceInfo.m */; };
 		B41BD3BF21C77365003ADC07 /* PeripherialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B41BD3BE21C77365003ADC07 /* PeripherialViewController.m */; };
@@ -22,6 +25,12 @@
 
 /* Begin PBXFileReference section */
 		01EF18DDEB46B42D53F18B06 /* Pods_newBLEcentralDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_newBLEcentralDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		35142E4F21F2DB5100262AE3 /* SubViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubViewController.h; sourceTree = "<group>"; };
+		35142E5021F2DB5100262AE3 /* SubViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SubViewController.m; sourceTree = "<group>"; };
+		35142E5221F2DD4C00262AE3 /* CharacterSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CharacterSettingViewController.h; sourceTree = "<group>"; };
+		35142E5321F2DD4C00262AE3 /* CharacterSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CharacterSettingViewController.m; sourceTree = "<group>"; };
+		35142E5521F2EBFF00262AE3 /* ControllerAnimationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ControllerAnimationManager.h; sourceTree = "<group>"; };
+		35142E5621F2EBFF00262AE3 /* ControllerAnimationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ControllerAnimationManager.m; sourceTree = "<group>"; };
 		72EE0E910CAC4D684F88549F /* Pods-newBLEcentralDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-newBLEcentralDemo.debug.xcconfig"; path = "Target Support Files/Pods-newBLEcentralDemo/Pods-newBLEcentralDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		B41BD3A921C34B52003ADC07 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		B41BD3AA21C34C1E003ADC07 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
@@ -84,6 +93,10 @@
 				B4A3A25F1F2F0A1800FEE539 /* MainViewController.m */,
 				B41BD3BD21C77365003ADC07 /* PeripherialViewController.h */,
 				B41BD3BE21C77365003ADC07 /* PeripherialViewController.m */,
+				35142E4F21F2DB5100262AE3 /* SubViewController.h */,
+				35142E5021F2DB5100262AE3 /* SubViewController.m */,
+				35142E5221F2DD4C00262AE3 /* CharacterSettingViewController.h */,
+				35142E5321F2DD4C00262AE3 /* CharacterSettingViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -114,6 +127,8 @@
 			children = (
 				B4B121F621C8B13900EE0A46 /* BLECentralManager.h */,
 				B4B121F721C8B13900EE0A46 /* BLECentralManager.m */,
+				35142E5521F2EBFF00262AE3 /* ControllerAnimationManager.h */,
+				35142E5621F2EBFF00262AE3 /* ControllerAnimationManager.m */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -294,11 +309,14 @@
 			files = (
 				B4A3A24C1F2F09F800FEE539 /* AppDelegate.m in Sources */,
 				B41BD3B521C35142003ADC07 /* UIDevice+DeviceInfo.m in Sources */,
+				35142E5721F2EBFF00262AE3 /* ControllerAnimationManager.m in Sources */,
+				35142E5421F2DD4C00262AE3 /* CharacterSettingViewController.m in Sources */,
 				B41BD3BF21C77365003ADC07 /* PeripherialViewController.m in Sources */,
 				B4A3A2601F2F0A1800FEE539 /* MainViewController.m in Sources */,
 				B4A3A2491F2F09F800FEE539 /* main.m in Sources */,
 				B4B121F821C8B13900EE0A46 /* BLECentralManager.m in Sources */,
 				B4B348BE21C9F183003A5E0F /* PeripheralTableViewCell.m in Sources */,
+				35142E5121F2DB5100262AE3 /* SubViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
