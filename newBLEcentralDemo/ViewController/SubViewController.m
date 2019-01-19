@@ -10,18 +10,21 @@
 
 // Helpers
 #import <Masonry/Masonry.h>
+#import "ControllerAnimationManager.h"
 
 @interface SubViewController ()
-
-@property (nonatomic, assign) NSInteger viewHeight;
-@property (nonatomic, assign) NSInteger viewWidth;
 
 @end
 
 @implementation SubViewController
 
+- (void)dealloc {
+    NSLog(@"%@, has been dealloced", self);
+}
+
 - (void)loadView {
     self.view = [[UIView alloc] initWithFrame:CGRectZero];
+    self.view.backgroundColor = [UIColor whiteColor];
     self.view.layer.cornerRadius = 10;
     self.view.userInteractionEnabled = YES;
     self.view.clipsToBounds = YES;
@@ -30,8 +33,7 @@
 - (instancetype)initWithSize:(CGSize)size {
     self = [super init];
     if (self) {
-        _viewHeight = size.height;
-        _viewWidth = size.width;
+        _size = size;
     }
     return self;
 }
@@ -39,12 +41,17 @@
 #pragma mark - LifeCycle
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.view setNeedsUpdateConstraints];
 }
 
 - (void)updateViewConstraints {
     [super updateViewConstraints];
-    [self.view.heightAnchor constraintEqualToConstant:self.viewHeight].active = YES;
-    [self.view.widthAnchor constraintEqualToConstant:self.viewWidth].active = YES;
+}
+
+#pragma mark - Actions
+-(void)hideWithCompletion:(void (^)(void))completion {
+    [[ControllerAnimationManager sharedManager] hideViewController];
+    !completion ?: completion();
 }
 
 @end

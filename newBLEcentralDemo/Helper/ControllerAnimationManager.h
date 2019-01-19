@@ -21,6 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)popUp:(SubViewController *)popingViewController InViewConrtroller:(UIViewController *)controller;
 
+- (void)hideViewController;
+
 @end
 
 NS_ASSUME_NONNULL_END

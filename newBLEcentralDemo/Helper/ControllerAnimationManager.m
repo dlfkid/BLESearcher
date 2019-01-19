@@ -21,12 +21,11 @@
 
 @end
 
-static ControllerAnimationManager *sharedManager = nil;
-
 @implementation ControllerAnimationManager
 
 + (ControllerAnimationManager *)sharedManager {
-    dispatch_once_t onceToken;
+    static ControllerAnimationManager *sharedManager;
+    static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedManager = [[self alloc] init];
         sharedManager.hasShowingController = NO;
@@ -62,10 +61,20 @@ static ControllerAnimationManager *sharedManager = nil;
         return;
     }
     [self.baseViewController.view addSubview:self.darkMaskView];
-    [self.darkMaskView addSubview:self.showingViewController.view];
-    [_showingViewController.view mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.center.equalTo(@0);
+    [self.darkMaskView.contentView addSubview:self.showingViewController.view];
+    [self.showingViewController.view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo(self.showingViewController.size.width);
+        make.height.mas_equalTo(self.showingViewController.size.height);
+        make.centerX.equalTo(@0);
+        make.centerY.mas_equalTo([UIScreen mainScreen].bounds.size.height + 1000);
     }];
+    
+    [self.darkMaskView layoutIfNeeded];
+    
+    [self.showingViewController.view mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(@0);
+    }];
+    
     [UIView animateWithDuration:0.3 animations:^{
         [self.darkMaskView layoutIfNeeded];
     } completion:^(BOOL finished) {
@@ -77,8 +86,8 @@ static ControllerAnimationManager *sharedManager = nil;
     if (!self.hasShowingController) {
         return;
     }
-    [self.showingViewController.view mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.size.equalTo(@0);
+    [self.showingViewController.view mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.centerY.mas_equalTo([UIScreen mainScreen].bounds.size.height + 1000);
     }];
     [UIView animateWithDuration:0.3 animations:^{
         [self.darkMaskView layoutIfNeeded];
@@ -88,6 +97,7 @@ static ControllerAnimationManager *sharedManager = nil;
             [self.darkMaskView removeFromSuperview];
             self.showingViewController = nil;
             self.baseViewController = nil;
+            self.hasShowingController = NO;
         }
     }];
 }

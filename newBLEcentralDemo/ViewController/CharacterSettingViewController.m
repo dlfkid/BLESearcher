@@ -122,13 +122,10 @@ static CGFloat const viewWidth = 340;
 #pragma mark - Actions
 
 - (void)actionButtonDidTappedAction {
-    if (!self.isSaveable) {
-        return;
-    }
-    
-    if (self.writeValueTextView.text.length > 0) {
+    if (self.isSaveable && self.writeValueTextView.text.length > 0) {
         // 执行写入操作
     }
+    [self hideWithCompletion:nil];
 }
 
 @end

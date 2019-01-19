@@ -12,7 +12,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SubViewController : UIViewController
 
+@property (nonatomic, assign) CGSize size;
+
 - (instancetype)initWithSize:(CGSize)size;
+
+- (void)hideWithCompletion:(nullable void(^)(void))completion;
 
 @end
 
