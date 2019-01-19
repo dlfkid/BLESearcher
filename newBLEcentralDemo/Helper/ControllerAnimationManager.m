@@ -60,7 +60,8 @@
     if (self.hasShowingController) {
         return;
     }
-    [self.baseViewController.view addSubview:self.darkMaskView];
+    // 要在窗口上添加该遮罩，否则用户点击返回时会出现BUG
+    [[UIApplication sharedApplication].keyWindow addSubview:self.darkMaskView];
     [self.darkMaskView.contentView addSubview:self.showingViewController.view];
     [self.showingViewController.view mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.mas_equalTo(self.showingViewController.size.width);
