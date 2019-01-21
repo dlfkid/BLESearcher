@@ -72,6 +72,7 @@ static NSString * const peripheralListIdentifier = @"peripheralCell";
 #pragma mark - UIbuild
 
 - (void)loadView {
+  self.navigationItem.title = localizedString(@"MainViewController.title");
   UIView *view = [[UIView alloc]initWithFrame:CGRectZero];
   view.backgroundColor = [UIColor whiteColor];
   self.view = view;
@@ -92,6 +93,7 @@ static NSString * const peripheralListIdentifier = @"peripheralCell";
   [super viewDidLoad];
   
   [self setupContents];
+  [self.tableView triggerPullToRefresh];
 }
 
 - (void)viewWillLayoutSubviews {
@@ -101,11 +103,6 @@ static NSString * const peripheralListIdentifier = @"peripheralCell";
     make.left.right.equalTo(@0);
     make.bottom.equalTo(@(-[UIDevice bottomIndicatior]));
   }];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-  self.navigationItem.title = localizedString(@"MainViewController.title");
-  [self.tableView triggerPullToRefresh];
 }
 
 - (void)didReceiveMemoryWarning {
