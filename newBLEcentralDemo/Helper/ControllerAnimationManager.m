@@ -65,7 +65,8 @@
     [self.darkMaskView.contentView addSubview:self.showingViewController.view];
     [self.showingViewController.view mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.mas_equalTo(self.showingViewController.size.width);
-        make.height.mas_equalTo(self.showingViewController.size.height);
+        // 因为要展示动态高度的视图因此先不对高度作限制
+        // make.height.mas_equalTo(self.showingViewController.size.height);
         make.centerX.equalTo(@0);
         make.centerY.mas_equalTo([UIScreen mainScreen].bounds.size.height + 1000);
     }];

@@ -1,0 +1,6 @@
+framework module iOSDeviceScreenAdapter {
+  umbrella header "iOSDeviceScreenAdapter-umbrella.h"
+
+  export *
+  module * { export * }
+}

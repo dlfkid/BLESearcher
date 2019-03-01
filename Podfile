@@ -18,4 +18,6 @@ target 'newBLEcentralDemo' do
   #pod 'SDWebImage'
   pod 'FLEX', '~> 2.0', :configurations => ['Debug']
   #pod 'FCFileManager'
+  pod 'iOSDeviceScreenAdapter'
+  pod 'UIExtensionKit'
 end

@@ -46,9 +46,10 @@ static NSString * const peripheralListIdentifier = @"peripheralCell";
     __weak typeof(self) weakSelf = self;
     [_tableView addPullToRefreshWithActionHandler:^{
     __strong typeof(self) strongSelf = weakSelf;
-      [strongSelf.manager scanPeripherals];
-      NSTimer *timer = [[NSTimer alloc] initWithFireDate:[NSDate dateWithTimeIntervalSinceNow:8] interval:0 target:strongSelf selector:@selector(pullToRefreshTimeOut) userInfo:nil repeats:NO];
-      [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+        [strongSelf.manager scanPeripherals];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+            [strongSelf.tableView.pullToRefreshView stopAnimating];
+        });
     }];
   }
   return _tableView;
@@ -80,7 +81,13 @@ static NSString * const peripheralListIdentifier = @"peripheralCell";
 
 
 - (void)setupContents {
-  [self.view addSubview:self.tableView];
+    [self.view addSubview:self.tableView];
+    
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(@([UIDevice navigationBarAndStatusBarHeight]));
+        make.left.right.equalTo(@0);
+        make.bottom.equalTo(@(-[UIDevice bottomIndicatior]));
+    }];
 }
 
 #pragma mark - LifeCycle
@@ -98,21 +105,10 @@ static NSString * const peripheralListIdentifier = @"peripheralCell";
 
 - (void)viewWillLayoutSubviews {
   [super viewWillLayoutSubviews];
-  [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-    make.top.equalTo(@([UIDevice navigationBarAndStatusBarHeight]));
-    make.left.right.equalTo(@0);
-    make.bottom.equalTo(@(-[UIDevice bottomIndicatior]));
-  }];
 }
 
 - (void)didReceiveMemoryWarning {
   [super didReceiveMemoryWarning];
-}
-
-#pragma mark - Actions
-
-- (void)pullToRefreshTimeOut {
-  [self.tableView.pullToRefreshView stopAnimating];
 }
 
 #pragma mark - BLECentralManagerDelegate

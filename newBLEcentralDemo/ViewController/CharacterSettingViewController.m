@@ -97,35 +97,39 @@ static CGFloat const viewWidth = 340;
     [self.view addSubview:self.currentValueLabel];
     [self.view addSubview:self.writeValueTextView];
     [self.view addSubview:self.actionButton];
-}
-
--(void)updateViewConstraints {
     
-    [self.titleLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+    [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(10);
         make.right.mas_equalTo(-10);
         make.top.mas_equalTo(10);
     }];
     
-    [self.currentValueLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+    [self.currentValueLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(10);
         make.right.mas_equalTo(-10);
         make.top.mas_equalTo(self.titleLabel.mas_bottom).mas_offset(10);
     }];
     
-    [self.writeValueTextView mas_updateConstraints:^(MASConstraintMaker *make) {
+    [self.writeValueTextView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(10);
         make.right.mas_equalTo(-10);
         make.top.mas_equalTo(self.currentValueLabel.mas_bottom).mas_offset(10);
         make.height.mas_equalTo(@44);
     }];
     
-    [self.actionButton mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.left.right.bottom.mas_equalTo(0);
+    [self.actionButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.mas_equalTo(0);
+        make.top.mas_equalTo(self.writeValueTextView.mas_bottom).offset(10);
         make.height.mas_equalTo(40);
     }];
-    
-    [super updateViewConstraints];
+}
+
+- (void)viewDidLayoutSubviews {
+    // 子视图布局完毕
+    [self.view mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.bottom.mas_equalTo(self.actionButton.mas_bottom).offset(10);
+    }];
+    [super viewDidLayoutSubviews];
 }
 
 #pragma mark - Actions

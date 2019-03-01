@@ -17,6 +17,7 @@
 #import "BLECentralManager.h"
 #import "ControllerAnimationManager.h"
 #import "UIDevice+DeviceInfo.h"
+#import <UIExtensionKit/NSString+UIKitExtension.h>
 
 @interface PeripherialViewController()<UITableViewDelegate, UITableViewDataSource, CBPeripheralDelegate>
 
@@ -96,11 +97,11 @@ static NSString * const serviceHeaderReuseIdentifier = @"PeripheralViewControlle
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-  UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:characteristicCellReuseIdentifier];
-  CBService *service = self.perpherial.services[indexPath.section];
-  CBCharacteristic *characteristic = service.characteristics[indexPath.row];
-  cell.textLabel.text = characteristic.UUID.UUIDString;
-  return cell;
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:characteristicCellReuseIdentifier];
+    CBService *service = self.perpherial.services[indexPath.section];
+    CBCharacteristic *characteristic = service.characteristics[indexPath.row];
+    cell.textLabel.text = characteristic.UUID.UUIDString;
+    return cell;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {

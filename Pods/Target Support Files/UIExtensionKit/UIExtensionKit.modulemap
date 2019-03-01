@@ -1,0 +1,6 @@
+framework module UIExtensionKit {
+  umbrella header "UIExtensionKit-umbrella.h"
+
+  export *
+  module * { export * }
+}

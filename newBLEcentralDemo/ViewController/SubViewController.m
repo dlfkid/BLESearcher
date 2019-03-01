@@ -18,9 +18,11 @@
 
 @implementation SubViewController
 
+#ifdef DEBUG
 - (void)dealloc {
     NSLog(@"%@, has been dealloced", self);
 }
+#endif
 
 - (void)loadView {
     self.view = [[UIView alloc] initWithFrame:CGRectZero];
