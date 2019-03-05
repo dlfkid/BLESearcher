@@ -38,7 +38,7 @@
 
 #pragma mark - LifeCycle
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-  [IQKeyboardManager sharedManager];
+  [[IQKeyboardManager sharedManager] setEnable:YES];
   [[BLECentralManager sharedManager] currentState];
   [self setupWindow];
   [self setupRootViewController];

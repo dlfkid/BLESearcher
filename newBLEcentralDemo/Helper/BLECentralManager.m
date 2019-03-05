@@ -91,6 +91,10 @@ static NSString * const bleManageQueueName = @"com.seal.newBLEcentralDemo.bleMan
   [self.centralManager scanForPeripheralsWithServices:nil options:nil];
 }
 
+- (void)stopScan {
+    [self.centralManager stopScan];
+}
+
 - (void)connectWithPeripheral:(CBPeripheral *)peripheral completionHandler:(CompletionHandler)completion {
   self.connectionCompletion = completion;
   self.connectingPerpheral = peripheral;

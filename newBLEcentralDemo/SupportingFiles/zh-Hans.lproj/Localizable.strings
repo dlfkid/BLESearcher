@@ -21,3 +21,5 @@
 "ChaaracteristicSettingViewController.actionButton.title.save" = "保存";
 "ChaaracteristicSettingViewController.actionButton.title.cancel" = "取消";
 
+"MainViewController.hud.connecting" = "正在连接设备...";
+

@@ -26,7 +26,6 @@
 
 @property (nonatomic, strong) UILabel *status;
 @property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) NSArray *peripheralList;
 @property (nonatomic, strong) BLECentralManager *manager;
 
 @end
@@ -48,6 +47,7 @@ static NSString * const peripheralListIdentifier = @"peripheralCell";
     __strong typeof(self) strongSelf = weakSelf;
         [strongSelf.manager scanPeripherals];
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+            [strongSelf.manager stopScan];
             [strongSelf.tableView.pullToRefreshView stopAnimating];
         });
     }];
@@ -61,13 +61,6 @@ static NSString * const peripheralListIdentifier = @"peripheralCell";
     _manager.delegate = self;
   }
   return _manager;
-}
-
-- (NSArray *)peripheralList {
-  if (!_peripheralList) {
-    _peripheralList = self.manager.peripherals;
-  }
-  return _peripheralList;
 }
 
 #pragma mark - UIbuild
@@ -134,11 +127,11 @@ static NSString * const peripheralListIdentifier = @"peripheralCell";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-  return self.peripheralList.count;
+  return [BLECentralManager sharedManager].peripherals.count;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-  CBPeripheral *peripheral = self.peripheralList[indexPath.row];
+  CBPeripheral *peripheral = [BLECentralManager sharedManager].peripherals[indexPath.row];
   __weak typeof(self) weakSelf = self;
   [self.manager connectWithPeripheral:peripheral completionHandler:^(BOOL success, NSError * _Nullable error) {
     __strong typeof(self) strongSelf = weakSelf;
@@ -150,12 +143,12 @@ static NSString * const peripheralListIdentifier = @"peripheralCell";
       [SVProgressHUD showErrorWithStatus:error.localizedDescription];
     }
   }];
-  [SVProgressHUD show];
+  [SVProgressHUD showWithStatus:NSLocalizedString(@"MainViewController.hud.connecting", "")];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   PeripheralTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:peripheralListIdentifier forIndexPath:indexPath];
-  CBPeripheral *peripheral = self.peripheralList[indexPath.row];
+  CBPeripheral *peripheral = [BLECentralManager sharedManager].peripherals[indexPath.row];
   cell.peripheral = peripheral;
   return cell;
 }

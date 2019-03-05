@@ -34,6 +34,8 @@ typedef void (^CompletionHandler)(BOOL success, NSError * _Nullable error);
 
 - (void)scanPeripherals;
 
+- (void)stopScan;
+
 - (void)connectWithPeripheral:(CBPeripheral *)peripheral completionHandler:(_Nullable CompletionHandler)completion;
 
 - (void)disconnectWithPeripheral:(CBPeripheral *)peripheral;

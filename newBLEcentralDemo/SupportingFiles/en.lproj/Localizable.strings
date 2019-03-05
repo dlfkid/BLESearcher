@@ -20,3 +20,5 @@
 "ChaaracteristicSettingViewController.writeValueTextView.placeHolder" = "  Input new characteristic value";
 "ChaaracteristicSettingViewController.actionButton.title.save" = "Save";
 "ChaaracteristicSettingViewController.actionButton.title.cancel" = "Cancel";
+
+"MainViewController.hud.connecting" = "Connecting to device...";
